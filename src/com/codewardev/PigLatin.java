@@ -8,10 +8,14 @@ public class PigLatin {
 		String[] strings = str.split(" ");
 		String result ="";
 		for(String x: strings) {
-			char first = x.charAt(0);
-			String newStr = x.replace(x.charAt(0)+"", "").concat(first+"ay");
-			result += newStr+" ";
-			System.out.println(newStr);
+			if(x.matches("[a-zA-Z]+")) {
+				char first = x.charAt(0);
+				String newStr = x.replaceFirst(first+"", "").concat(first+"ay");
+				result += newStr+" ";
+				System.out.println(newStr);
+			} else {
+				result += x;
+			}
 		}
 		return result.trim();
 	}
